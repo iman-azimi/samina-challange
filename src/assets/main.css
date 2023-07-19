@@ -1,0 +1,54 @@
+@import "./base.css";
+@import "./fonts/icons/icons.css";
+
+body {
+  background: #F5F5F5 ;
+}
+body.dark {
+  background: #252849 !important;
+}
+#app {
+  font-family: IRANSans;
+  font-weight: normal;
+  direction: rtl;
+}
+
+.fade-enter-active {
+  transition: all 0.1s ease;
+}
+
+.fade-leave-active {
+  transition: all 0.1s ease;
+}
+
+.fade-enter-from {
+  transform: translateX(15px);
+  opacity: 0;
+}
+.fade-leave-to {
+  transform: translateX(25px);
+  opacity: 0;
+}
+
+
+.fade-up-enter-active {
+  transition: all 0.2s ease;
+}
+
+.fade-up-leave-active {
+  transition: all 0s ease;
+}
+
+.fade-up-enter-from,
+.fade-up-leave-to {
+  transform: translatey(-20px);
+  opacity: 0;
+}
+
+.Vue-Toastification__toast-body {
+  font-family: "IRANSans" !important;
+}
+
+.router-link-active {
+  @apply text-white;
+}
