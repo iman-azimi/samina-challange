@@ -22,7 +22,7 @@
         <div class="text-2xl mt-6 text-gray-400">لطفا منتظر بمانید...</div>
 
         <div class="animate-pulse text-3xl text-teal-500 mt-8">
-          سیما اولین سامانه مشاغل داروخانه
+          ثمینا
         </div>
       </span>
     </div>

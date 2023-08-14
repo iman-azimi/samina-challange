@@ -1,57 +1,67 @@
 <template>
   <div class="h-full w-full backdrop-blur-lg bg-white/30 dark:bg-dark-700/30">
     <aside
-      class="flex flex-col justify-between w-72 sticky bg-teal-500 dark:bg-dark-900 h-full p-4 rounded-2xl"
-      :class="{ 'bg-teal-600': admin }"
+      class="flex flex-col justify-between w-72 sticky bg-white dark:bg-dark-900 h-full p-4 border-l-2 border-gray-200"
     >
       <div class="overflow-y-auto">
-        <div class="flex-col items-center relative mt-6 text-center">
-          <span
-            class="w-3 h-3 bg-purple-600 rounded-full absolute top-4 z-10"
+        <div class="mt-8">
+          <img
+            src="@/assets/images/logo.png"
           />
-          <div
-            class="p-2 border-2 border-gray-500 rounded-full text-center inline-block"
-          >
+        </div>
+        <div class="bg-gray-100 flex items-center justify-between p-4 rounded-md mt-6 cursor-pointer">
+          <div class="flex">
             <img
-              src="@/assets/images/avatar.png"
-              class="rounded-full w-16 h-16"
+              src="@/assets/images/apple.png"
             />
+            <div class="mr-4 font-bold">
+              شرکت اپل
+            </div>
           </div>
-          <div class="dark:text-white text-black ml-3">
-            <h2 class="text-lg text-white">ایمان عظیمی</h2>
-            <div class="text-sm text-purple-600 font-semibold">خوش آمدید</div>
-          </div>
+          <img
+            src="@/assets/images/bank-card.svg"
+          />
         </div>
         <div class="w-12/12 mt-10 flex flex-col justify-between">
-          <ul class="text-white">
+          <ul class="text-gray-700">
             <li v-for="item in getMenuItem" :key="item.i" class="py-4 text-sm">
               <div
                 :class="[activeRoute === item.link ? getActiveItemClass : '']"
-                class="px-1"
+                class="px-1 flex justify-between items-center cursor-pointer"
               >
-                <router-link :to="item.link" @click="activeItem(item.link)">
+                <div>
                   <i
                     :class="[
                       activeRoute === item.link ? 'text-purple-500' : '',
                       `i-${item.icon} text-xl align-middle mr-1 ml-2`
                     ]"
                   />
-                  {{ item.title }}
-                </router-link>
+                  <span class="font-semibold">{{ item.title }}</span>
+                </div>
+                <i class="i-arrow-down" />
               </div>
             </li>
           </ul>
         </div>
       </div>
-      <div class="mb-6 text-center">
-        <button
-          class="text-white font-semibold hover:bg-teal-400 dark:hover:bg-dark-700 w-full py-2 rounded-2xl"
-          @click="handleLogout()"
-        >
-          <i class="i-logout align-middle ml-2 text-xl" />
-          خروج از حساب
-        </button>
-        <dark-mode class="mt-6" />
+      <div class="mb-6">
+        <div>
+          <img
+            src="@/assets/images/icons/message-question.svg"
+            class="inline-block"
+          />
+          <span class="mr-3 font-semibold">راهنما</span>
+        </div>
+        <div class="mt-4 flex justify-between">
+          <div>
+            <img
+              src="@/assets/images/icons/comment.svg"
+              class="inline-block"
+            />
+            <span class="mr-3 font-semibold">پشتیبانی</span>
+          </div>
+          <span>ورژن ۱.۰.۴</span>
+        </div>
       </div>
     </aside>
   </div>
@@ -67,8 +77,6 @@ const toast = useToast();
 const cookie = useCookie();
 import { useThemeStore } from "@/stores/theme";
 const themeStore = useThemeStore();
-const emit = defineEmits(["closeDrawer"]);
-const admin = ref(false);
 
 const route = useRoute();
 
@@ -79,15 +87,37 @@ const mainItem = reactive([
     link: "/dashboard"
   },
   {
-    title: "پروفایل",
+    title: "طرف حساب",
     icon: "profile",
+    link: "/dashboard/profile"
+  },
+  {
+    title: "کالا و خدمات",
+    icon: "box",
+    link: "/dashboard/profile"
+  },
+  {
+    title: "انبارداری",
+    icon: "home-2",
+    link: "/dashboard/profile"
+  },
+  {
+    title: "فروش",
+    icon: "coin",
+    link: "/dashboard/profile"
+  },
+  {
+    title: "خزانه داری",
+    icon: "bag",
+    link: "/dashboard/profile"
+  },
+  {
+    title: "تعریف حساب بانکی",
+    icon: "setting-2",
     link: "/dashboard/profile"
   }
 ]);
-function closeNavigation() {
-  emit("closeDrawer");
-}
 const getMenuItem = computed(() => {
-  return mainItem.value;
+  return mainItem;
 });
 </script>

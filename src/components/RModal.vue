@@ -1,13 +1,13 @@
 <template>
   <div
     v-if="show"
-    class="fixed md:flex justify-center items-center top-0 left-0 w-full h-screen overflow-y-scroll sm:z-50 bg-gray-900/80 backdrop-blur-sm z-50"
+    class="fixed md:flex justify-center items-center top-0 left-0 w-full h-screen overflow-y-scroll sm:z-50 bg-gray-600/80  z-50"
   >
     <div class="flex justify-center pt-7">
       <transition name="fade" appear>
         <div
           v-click-out-side="closeModal"
-          class="inline-block dark:bg-dark-900 p-4 bg-white rounded-lg py-8 mt-12 border border-teal-500 m-4 md:m-0"
+          class="inline-block dark:bg-dark-900 py-4 bg-white rounded-lg py-8 mt-12 border border-teal-500 m-4 md:m-0"
           :style="`width:${width}px`"
         >
           <slot />

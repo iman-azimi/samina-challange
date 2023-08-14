@@ -1,47 +1,68 @@
 <template>
   <main>
-    <template v-if="isMobile">
-      <transition name="fade" appear>
-        <mobile-navigation-drawer
-          v-show="showDrawer"
-          class="duration-500"
-          @close-drawer="closeDrawer"
-        />
-      </transition>
-    </template>
     <div class="flex">
-      <div v-if="!isMobile" class="h-screen sticky top-0">
-        <transition name="fade" appear>
-          <NavigationDrawer
-            v-show="showDrawer"
-            class="duration-500"
-            @close-drawer="closeDrawer"
+      <div v-if="!isMobile">
+        <div class="absolute bg-white rounded-full p-2 -left-4 z-50 top-10 border-2 border-gray-200 cursor-pointer">
+          <img
+            src="@/assets/images/icons/arrow-right.svg"
           />
-        </transition>
+        </div>
+        <div class="h-screen sticky top-0">
+          <transition name="fade" appear>
+            <NavigationDrawer
+              v-show="showDrawer"
+              class="duration-500"
+              @close-drawer="closeDrawer"
+            />
+          </transition>
+        </div>
       </div>
       <div class="w-full">
-        <div class="p-6">
-          <div class="flex justify-between">
-            <div>
-              <i
-                class="i-menu text-2xl dark:text-white pl-1 cursor-pointer"
-                @click="showDrawer = !showDrawer"
-              />
+        <div>
+          <div class="flex justify-between items-center bg-white py-4 px-10 border-b-2 border-gray-200">
+            <div class="flex justify-between">
+              <div class="flex">
+                <div>
+                  <img
+                    src="@/assets/images/icons/clock.svg"
+                    class="inline-block ml-3"
+                  />
+                  ساعت: {{ new Intl.DateTimeFormat('fa-IR', {hour: 'numeric', minute: 'numeric'}).format(d) }}
+                </div>
+                <div class="mr-8">
+                  <img
+                    src="@/assets/images/icons/calendar.svg"
+                    class="inline-block ml-3"
+                  />
+                  {{ new Intl.DateTimeFormat('fa-IR', {dateStyle: 'full'}).format(d) }}
+                </div>
+              </div>
             </div>
             <div class="flex">
-              <span class="relative">
-                <i
-                  class="i-notification-bing text-white text-2xl bg-teal-500 p-2 align-middle rounded-full"
-                />
-                <span class="flex absolute h-3 w-3 -top-1 right-1 -mt-1 -mr-1">
-                  <span
-                    class="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-500 opacity-75"
-                  ></span>
-                  <span
-                    class="relative inline-flex rounded-full h-3 w-3 bg-purple-500"
-                  ></span>
-                </span>
-              </span>
+              <div class="bg-gray-100 flex items-center justify-between px-2 py-2 rounded-md cursor-pointer">
+                <div>
+                  <div class="flex justify-between items-center">
+                    <img
+                      src="@/assets/images/icons/calendar-chart.svg"
+                      class="inline-block ml-3"
+                    />
+                    سالی مالی ۱۴۰۲
+                    <i class="i-arrow-down mr-4" />
+                  </div>
+                </div>
+              </div>
+              <img
+                src="@/assets/images/icons/phone.svg"
+                class="inline-block ml-4 mr-8"
+              />
+              <img
+                src="@/assets/images/icons/ringtone.svg"
+                class="inline-block ml-4"
+              />
+              <img
+                src="@/assets/images/avatar.png"
+                class="inline-block ml-4"
+              />
             </div>
           </div>
           <div class="mt-10">
@@ -55,8 +76,8 @@
 
 <script setup>
 import { ref } from "vue";
-import { isMobile } from "mobile-device-detect";
-const showDrawer = ref(false);
+import moment from "moment-jalaali"
+const showDrawer = ref(true);
 function closeDrawer() {
   showDrawer.value = false;
 }

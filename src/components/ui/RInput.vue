@@ -9,7 +9,7 @@
           :placeholder="label"
           :name="name"
           :disabled="disabled"
-          class="w-full p-3 pt-2 placeholder-transparent rounded-full peer focus:outline-none focus:shadow-sm disabled:bg-green-50 focus:border-b-2 focus:border-b-teal-500"
+          class="w-full p-3 pt-2 placeholder-transparent rounded-full peer focus:outline-none focus:shadow-sm disabled:bg-green-50 focus:border-b-2 focus:border-b-[#155EEF]"
           :class="getClasses"
         />
         <label

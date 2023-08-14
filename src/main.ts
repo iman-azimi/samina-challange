@@ -11,7 +11,6 @@ import "vue-toastification/dist/index.css";
 import Vue3PersianDatetimePicker from "vue3-persian-datetime-picker";
 import { toPersianDigit } from '@/utilities/toPersianDigit'
 import { QuillEditor } from '@vueup/vue-quill'
-import VueApexCharts from "vue3-apexcharts";
 
 import '@vueup/vue-quill/dist/vue-quill.snow.css';
 import "./assets/main.css";
@@ -28,7 +27,6 @@ const options = {
 };
 app.use(Toast, options);
 app.use(createPinia());
-app.use(VueApexCharts);
 
 const routes = setupLayouts(generatedRoutes);
 const router = createRouter({

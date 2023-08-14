@@ -8,7 +8,6 @@ export {}
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     Accordion: typeof import('./src/components/ui/Accordion.vue')['default']
-    AdminOverviewBox: typeof import('./src/components/admin/AdminOverviewBox.vue')['default']
     DarkMode: typeof import('./src/components/ui/DarkMode.vue')['default']
     DashboardSkeleton: typeof import('./src/components/skeleton/dashboardSkeleton.vue')['default']
     DataTable: typeof import('./src/components/ui/DataTable.vue')['default']
@@ -20,12 +19,7 @@ declare module '@vue/runtime-core' {
     NavigationDrawer: typeof import('./src/components/ui/NavigationDrawer.vue')['default']
     Otp: typeof import('./src/components/ui/Otp.vue')['default']
     OverviewBox: typeof import('./src/components/OverviewBox.vue')['default']
-    ProfileAddress: typeof import('./src/components/profile/ProfileAddress.vue')['default']
-    ProfileCompleteInformation: typeof import('./src/components/profile/ProfileCompleteInformation.vue')['default']
-    ProfileInfo: typeof import('./src/components/profile/ProfileInfo.vue')['default']
-    ProfileUploadDocument: typeof import('./src/components/profile/ProfileUploadDocument.vue')['default']
     RButton: typeof import('./src/components/ui/RButton.vue')['default']
-    RequestCard: typeof import('./src/components/request/RequestCard.vue')['default']
     RequestCardSkeleton: typeof import('./src/components/skeleton/requestCardSkeleton.vue')['default']
     RInput: typeof import('./src/components/ui/RInput.vue')['default']
     RModal: typeof import('./src/components/RModal.vue')['default']

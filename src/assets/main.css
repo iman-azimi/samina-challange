@@ -2,7 +2,7 @@
 @import "./fonts/icons/icons.css";
 
 body {
-  background: #F5F5F5 ;
+  background: #fff ;
 }
 body.dark {
   background: #252849 !important;
